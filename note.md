@@ -42,3 +42,9 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Command Processor" /v "DisableUNCC
 ```
 
 运行之后可以通过 regedit查看是否添加成功（也可以手动添加）
+
+## 使用vue-cli3编写electron
+
+1. install vue-cli 3
+2. vue create project-name
+3. 安装插件 vue add electron-builder
