@@ -2,21 +2,21 @@
   <div class="container">
     <div class="header">
       <div class="hide">
-        <img src="./assets/hide.png">
+        <img src="./assets/hide.png" @click="handleHideClick">
       </div>
       <div class="close">
-        <img src="./assets/close.png">
+        <img src="./assets/close.png" @click="handleCloseClick">
       </div>
     </div>
     
-    <custom-clock />
+    <custom-clock :changePomodoroCount="this.changePomodoroCount" />
 
     <div class="tools-list">
       <div class="menu">
         <img src="./assets/menu.png">
       </div>
       <div class="record">
-        <span>Today 0 / 10</span>
+        <span>Today {{pomodoroCount}} / 10</span>
       </div>
       <div class="setting">
         <img src="./assets/setting.png">
@@ -27,11 +27,36 @@
 
 <script>
 import CustomClock from './components/CustomClock.vue'
+import { remote } from 'electron'
+import { notifyUser } from './util/util.js'
 
 export default {
   name: 'app',
   components: {
     CustomClock
+  },
+  data() {
+    return {
+      pomodoroCount: 9
+    }
+  },
+  methods: {
+    handleHideClick() {
+      remote.BrowserWindow.getFocusedWindow().minimize()
+    },
+    handleCloseClick() {
+      remote.BrowserWindow.getFocusedWindow().close()
+    },
+    changePomodoroCount(count) {
+      this.pomodoroCount += count
+
+      if (this.pomodoroCount === 10) {
+        notifyUser('info', {
+          title: "inished today's goal~",
+          body: 'Congratulations'
+        })
+      }
+    }
   }
 }
 </script>

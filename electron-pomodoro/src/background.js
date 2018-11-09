@@ -18,7 +18,7 @@ let tray
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 300, height: 450, frame: false })
+  win = new BrowserWindow({ width: 300, height: 450, frame: false, show: false })
 
   if (isDevelopment) {
     // Load the url of the dev server if in development mode
@@ -30,6 +30,9 @@ function createWindow () {
     win.loadFile('index.html')
   }
 
+  win.once('ready-to-show', () => {
+    win.show()
+  })
   win.on('close', (event) => {
     win.hide()
     event.preventDefault();
@@ -49,12 +52,12 @@ function createTray() {
         win.show()
       }
     },
-    {
-      label: '设置', 
-      type: 'normal',
-      click() {
-      }
-    },
+    // {
+    //   label: '设置', 
+    //   type: 'normal',
+    //   click() {
+    //   }
+    // },
     {type: 'separator'},
     {
       label: '退出', 
