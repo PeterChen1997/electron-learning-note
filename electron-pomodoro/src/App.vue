@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      pomodoroCount: 9
+      pomodoroCount: 0
     }
   },
   methods: {
@@ -74,7 +74,7 @@ export default {
 
 .header {
   width: 100%;
-  height: 45px;
+  height: 0px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -88,6 +88,7 @@ export default {
   margin:10px;
 }
 .header img {
+  margin-top: 10px;
   width: 20px;
   height: 20px;
 }

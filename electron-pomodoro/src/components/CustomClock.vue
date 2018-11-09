@@ -63,7 +63,7 @@ export default {
 
 <style>
 .clock {
-    margin-top: 20px;
+    margin-top: 60px;
     width: 220px;
     height: 220px;
     border: 6px solid #e3988d;

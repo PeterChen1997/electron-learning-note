@@ -18,7 +18,7 @@ let tray
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 300, height: 450, frame: false, show: false })
+  win = new BrowserWindow({ width: 300, height: 450, frame: false, show: false, resizable: false })
 
   if (isDevelopment) {
     // Load the url of the dev server if in development mode
