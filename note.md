@@ -4,6 +4,12 @@
 
 https://segmentfault.com/a/1190000013924153
 
+## 教程
+
+https://github.com/sindresorhus/awesome-electron
+
+https://www.youtube.com/watch?v=tqBi_Tou6wQ&list=PLC3y8-rFHvwiCJD3WrAFUrIMkGVDE0uqW&index=1
+
 ## BUG 记录
 
 ### 设置node和yarn镜像源
